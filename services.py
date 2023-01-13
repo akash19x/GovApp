@@ -8,4 +8,5 @@ def get_wikipedia_data():
     soup = BeautifulSoup(page.content, 'html.parser')
     table = soup.find_all('table')
     df = pd.read_html(str(table))[2]
+    df.rename(columns = {'Scheme[note 1]':'Scheme'}, inplace = True)
     return df
